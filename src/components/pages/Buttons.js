@@ -1,10 +1,9 @@
-import { Button } from 'components/common';
-import Header from 'components/common/Header';
+import { Button,PageLayout } from 'components/common';
 
 const Buttons = () => {
 	return (
 		<>
-			<Header />
+			<PageLayout />
 			<h1>App</h1>
 			<Button>Primary Button</Button>
 			<Button secondary>Secondary Button</Button>

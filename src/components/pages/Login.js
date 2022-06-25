@@ -1,9 +1,9 @@
-import Header from 'components/common/Header';
+import { PageLayout } from 'components/common';
 
 const Login = () => {
 	return (
 		<>
-			<Header />
+			<PageLayout />
 			<h1>Login</h1>
 		</>
 	);

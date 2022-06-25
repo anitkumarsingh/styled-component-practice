@@ -8,13 +8,13 @@ const HeaderStyle = styled.header`
 	box-sizing: border-box;
 	display: flex;
 	padding: 0 16px;
-	background: #eeee;
+	background-image:linear-gradient(to right, #f8049c, #fdd54f);
 	position: fixed;
 	top: 0;
 `;
 
 const Menus = styled.nav`
-	display: flex;
+	display: none;
 	position: relative;
 	width: initial;
 	margin: auto 0 auto auto;
@@ -23,6 +23,9 @@ const Menus = styled.nav`
 	background: none;
 	left: initial;
 	top: initial;
+  @media(min-width: 768px) {
+    display: flex;
+  }
 `;
 const Link = ({ isActive, children, ...props }) => {
 	return <RouterLink {...props}>{children}</RouterLink>;

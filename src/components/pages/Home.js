@@ -1,9 +1,9 @@
-import Header from 'components/common/Header';
+import { PageLayout } from 'components/common';
 
 const Home = () => {
 	return (
 		<>
-			<Header />
+			<PageLayout />
 			<h1>Home</h1>
 		</>
 	);
