@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PageLayout, Input } from 'components/common';
+import { PageLayout, Input, PasswordInput } from 'components/common';
 import styled from 'styled-components';
 
 const Forms = styled.form`
@@ -22,7 +22,7 @@ const Login = () => {
 			[e.target.name]: e.target.value
 		}));
 	};
-	
+
 	return (
 		<>
 			<PageLayout />
@@ -35,12 +35,10 @@ const Login = () => {
 					type='text'
 					placeholder='Please enter username'
 				/>
-				<Input
+				<PasswordInput
 					onChange={handleChange}
 					value={formFields.password}
-					type='password'
-					name='password'
-					placeholder='Please enter password'
+					name="password"
 				/>
 			</Forms>
 		</>
