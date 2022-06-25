@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { PageLayout, Input, PasswordInput, Button } from 'components/common';
+import { PageLayout, Input, PasswordInput, Button, Spinner } from 'components/common';
 import styled from 'styled-components';
 
 const Forms = styled.form`
@@ -11,9 +11,9 @@ const Forms = styled.form`
 	border-radius: 4px;
 	border: 2px solid #eeee;
 	margin: auto 5px;
-	.btn-alt{
+	.btn-alt {
 		text-align: center;
-		margin:14px 0;
+		margin: 14px 0;
 	}
 `;
 
@@ -49,23 +49,33 @@ const Login = () => {
 			<PageLayout />
 			<h1>Login</h1>
 			<Forms onSubmit={submitHandle}>
-				<Input
-					onChange={handleChange}
-					value={formFields.username}
-					name='username'
-					type='text'
-					placeholder='Please enter username'
-				/>
-				<PasswordInput
-					onChange={handleChange}
-					value={formFields.password}
-					name='password'
-				/>
-				<Button large disabled={loading}>{loading ? 'Loading...': 'Login'}</Button>
+				{loading ? (
+					<Spinner />
+				) : (
+					<>
+						<Input
+							onChange={handleChange}
+							value={formFields.username}
+							name='username'
+							type='text'
+							placeholder='Username'
+						/>
+						<PasswordInput
+							onChange={handleChange}
+							value={formFields.password}
+							name='password'
+						/>
+					</>
+				)}
+				<Button large disabled={loading}>
+					{loading ? 'Loading...' : 'Login'}
+				</Button>
 				{!loading && (
 					<>
 						<div className='btn-alt'>Or</div>
-						<Button secondary type="button">Register</Button>
+						<Button secondary type='button'>
+							Register
+						</Button>
 					</>
 				)}
 			</Forms>
