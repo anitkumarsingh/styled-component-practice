@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink,useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const HeaderStyle = styled.header`
@@ -36,14 +36,15 @@ const StyledLink = styled(Link)`
 	font-weight: ${(p) => (p.isActive ? 'bold' : 'normal')};
 `;
 const Header = () => {
+  const {pathname} =useLocation();
 	return (
 		<HeaderStyle>
 			<Menus>
-				<StyledLink to='/'>Home</StyledLink>
-				<StyledLink to='/login' isActive>
+				<StyledLink to='/' isActive={pathname ==='/'}>Home</StyledLink>
+				<StyledLink to='/login' isActive={pathname ==='/login'}>
 					Login
 				</StyledLink>
-				<StyledLink to='/button'>Buttons</StyledLink>
+				<StyledLink to='/button' isActive={pathname ==='/button'}>Buttons</StyledLink>
 			</Menus>
 		</HeaderStyle>
 	);
