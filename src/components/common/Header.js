@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -11,11 +11,26 @@ const HeaderStyle = styled.header`
 	background-image: linear-gradient(to right, #f8049c, #fdd54f);
 	position: fixed;
 	top: 0;
-  border-bottom: 3px solid #fdd54f;
+	border-bottom: 3px solid #fdd54f;
 `;
 
+const MobileMenuIcon = styled.div`
+	margin: auto 0 auto auto;
+	width: 25px;
+	min-width: 25px;
+	padding: 5px;
+	> div {
+		height: 3px;
+		background: black;
+		margin: 5px 0;
+		width: 100%;
+	}
+	@media (min-width: 768px) {
+		display: none;
+	}
+`;
 const Menus = styled.nav`
-	display: inline-grid;
+	display: ${p=>p.open ? 'inline-grid':'none'};
 	font-family: 'Open-sans';
 	position: absolute;
 	width: 100%;
@@ -23,16 +38,16 @@ const Menus = styled.nav`
 	left: 0;
 	padding: 8px;
 	box-sizing: border-box;
-  border-bottom: 3px solid #fdd54f;
-  background:white ;
+	border-bottom: 3px solid #fdd54f;
+	background: white;
 
 	@media (min-width: 768px) {
 		display: flex;
 		background: none;
 		left: initial;
 		top: initial;
-    margin: auto 0 auto auto;
-    border-bottom: none;
+		margin: auto 0 auto auto;
+		border-bottom: none;
 		position: relative;
 		width: initial;
 	}
@@ -49,10 +64,16 @@ const StyledLink = styled(Link)`
 	font-weight: ${(p) => (p.isActive ? 'bold' : 'normal')};
 `;
 const Header = () => {
+  const [menu,setMenu] = useState(false);
 	const { pathname } = useLocation();
 	return (
 		<HeaderStyle>
-			<Menus>
+			<MobileMenuIcon onClick={()=>setMenu(s=>!s)}>
+				<div />
+				<div />
+				<div />
+			</MobileMenuIcon>
+			<Menus open={menu}>
 				<StyledLink to='/' isActive={pathname === '/'}>
 					Home
 				</StyledLink>
