@@ -11,7 +11,7 @@ transform: rotate(360deg);
 const Spinner = styled.div`
 	height: 40px;
 	width: 40px;
-	border: 1px solid #f8049c;
+	border: 1px solid ${p=>p.theme.secondaryColor};
 	border-radius: 50%;
 	border-top: none;
 	border-right: none;

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle,ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Home from './pages/Home';
@@ -14,9 +14,13 @@ body{
 }
 `;
 
+const theme ={
+	primaryColor:'#f8049c',
+	secondaryColor:'#fdd54f'
+}
 const App = () => {
 	return (
-		<>
+		<ThemeProvider theme={theme}>
 			<GlobalStyle />
 			<Router>
 				<Switch>
@@ -31,7 +35,7 @@ const App = () => {
 					</Route>
 				</Switch>
 			</Router>
-		</>
+		</ThemeProvider>
 	);
 };
 

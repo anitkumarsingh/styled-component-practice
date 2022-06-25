@@ -8,10 +8,10 @@ const HeaderStyle = styled.header`
 	box-sizing: border-box;
 	display: flex;
 	padding: 0 16px;
-	background-image: linear-gradient(to right, #f8049c, #fdd54f);
+	background-image: linear-gradient(to right, ${p=>p.theme.primaryColor}, ${p=>p.theme.secondaryColor});
 	position: fixed;
 	top: 0;
-	border-bottom: 3px solid #fdd54f;
+	border-bottom: 3px solid ${p=>p.theme.secondaryColor};
 `;
 
 const MobileMenuIcon = styled.div`
@@ -38,7 +38,7 @@ const Menus = styled.nav`
 	left: 0;
 	padding: 8px;
 	box-sizing: border-box;
-	border-bottom: 3px solid #fdd54f;
+	border-bottom: 3px solid ${p=>p.theme.secondaryColor};
 	background: white;
 
 	@media (min-width: 768px) {
