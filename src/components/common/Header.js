@@ -67,6 +67,7 @@ const StyledLink = styled(Link)`
 	text-decoration: none;
 	margin: auto 0;
 	font-weight: ${(p) => (p.isActive ? 'bold' : 'normal')};
+	color: ${(p) => p.theme.bodyFontColor};
 `;
 const Header = () => {
 	const [menu, setMenu] = useState(false);

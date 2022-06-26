@@ -9,10 +9,10 @@ import darkTheme from '../themes/dark';
 
 const GlobalStyle = createGlobalStyle`
 body{
-  background: white;
+  background: ${(p) => p.theme.bodyBackgroundColor};
   font-family: 'Kaushan Script';
   min-height: 100vh;
-  color: black;
+  color: ${(p) => p.theme.bodyFontColor};
   margin: 0;
 }
 `;
